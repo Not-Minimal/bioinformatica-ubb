@@ -17,8 +17,7 @@ export function AlignmentGrid({ edges, nodes, paso }: AlignmentGridProps) {
     if (!svgRef.current || !nodes.length || !edges.length) return;
 
     // Limpiar el SVG existente
-    d3.select(svgRef.current).selectAll("*").remove();
-
+    d3.select(svgRef.current as unknown as Element).selectAll("*").remove();
     // Configuración inicial
     const size = 300;
     const margin = {
@@ -35,10 +34,10 @@ export function AlignmentGrid({ edges, nodes, paso }: AlignmentGridProps) {
 
     // Crear el SVG
     const svg = d3
-      .select(svgRef.current)
+      .select(svgRef.current as unknown as Element)
       .attr(
         "viewBox",
-        `0 0 ${size + margin.left + margin.right} ${size + margin.top + margin.bottom}`,
+        `0 0 ${size + margin.left + margin.right} ${size + margin.top + margin.bottom}`
       )
       .style("max-width", "100%")
       .style("height", "auto");
@@ -228,7 +227,7 @@ export function AlignmentGrid({ edges, nodes, paso }: AlignmentGridProps) {
 
     groupsEdges
       .on("mouseenter", function (event, d) {
-        const { x, y, nodeSize: size, puntaje } = d;
+        const { x, y, nodeSize, puntaje } = d;
         const value = isNaN(puntaje!) ? "" : format(puntaje!);
 
         groupHighlight.select("rect").attr("transform", `translate(${x} ${y})`);
