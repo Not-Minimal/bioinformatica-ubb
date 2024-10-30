@@ -25,6 +25,7 @@ import {
   ChevronLeftSquare,
 } from "lucide-react";
 import Image from "next/image";
+import { Badge } from "./badge";
 
 export default function BioinformaticaUBB() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -71,7 +72,7 @@ export default function BioinformaticaUBB() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-64 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed left-0 top-0 z-40 h-screen w-96 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
           } bg-white border-r`}
       >
         {/* ... resto del código del sidebar ... */}
@@ -135,7 +136,7 @@ export default function BioinformaticaUBB() {
               <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
                 <ShieldCheck className="h-4 w-4 text-gray-500" />
                 <Input
-
+                  type="number"
                   placeholder="1 (match)"
                   maxLength={20}
                   className="bg-transparent border-none focus:ring-0"
@@ -144,7 +145,7 @@ export default function BioinformaticaUBB() {
               <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
                 <EqualNot className="h-4 w-4 text-gray-500" />
                 <Input
-
+                  type="number"
                   placeholder="-1 (mismatch)"
                   maxLength={20}
                   className="bg-transparent border-none focus:ring-0"
@@ -153,7 +154,7 @@ export default function BioinformaticaUBB() {
               <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
                 <AlignHorizontalJustifyCenter className="h-4 w-4 text-gray-500" />
                 <Input
-
+                  type="number"
                   placeholder="-2 (gap)"
                   maxLength={20}
                   className="bg-transparent border-none focus:ring-0"
@@ -176,6 +177,16 @@ export default function BioinformaticaUBB() {
             <Button className="w-full bg-primary" onClick={handleSiguiente}>
               <ArrowBigLeft className="mr-2 h-4 w-4" /> Siguiente
             </Button>
+            <div className="mt-8 p-4 bg-slate-50 rounded-lg space-y-2">
+              <h3 className="font-bold text-xl">Notas:</h3>
+              <ul className="text-lg text-slate-600 space-y-1.5">
+                <li>- Se puede Agregar secuencias solo con caracteres A, C, T, G.</li>
+                <li>- Luego de agregarlos, se puede indicar los match, missmatch y gap.</li>
+                <li>- Se puede Inicializar la matriz luego de elegir las secuencias, pero no se puede inicializar el recorrido aun.</li>
+                <li>- Traspasar todo el código para que pueda correr en el servidor toma mas tiempo que 2 semanas.</li>
+                <li>- Tiene su dificultad tener un proyecto en NextJS, React, TailwindCSS y Shadcn/UI desplegado en la nube.(Perdon)</li>
+              </ul>
+            </div>
           </div>
 
           {/* Switch Global/Local */}
@@ -197,6 +208,10 @@ export default function BioinformaticaUBB() {
           } transition-all duration-300`}
       >
         <Card className="w-full h-full flex flex-col items-center justify-center bg-white p-8">
+          <div className="flex justify-center items-center p-8">
+            <Badge variant="secondary" className="text-lg p-4 bg-red-100 text-red-800 hover:bg-red-100">
+              Fase Beta 1.0 - Sin funcionalidad de Siguiente o Anterior
+            </Badge></div>
           <h2 className="text-lg font-semibold mb-6">
             {algoritmo === "nw"
               ? "Alineamiento Global: Needleman-Wunsch"
