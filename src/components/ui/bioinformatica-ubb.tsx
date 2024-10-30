@@ -72,11 +72,11 @@ export default function BioinformaticaUBB() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-96 sm:w-80 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } bg-white border-r`}
+        className={`fixed left-0 top-0 z-40 h-screen w-96 sm:w-full transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } bg-white border-r overflow-y-auto`} // Añadido overflow-y-auto
       >
         {/* ... resto del código del sidebar ... */}
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col min-h-full">
           <div className="p-4 border-b">
             <div className="flex items-center justify-between">
               <Image
@@ -104,7 +104,7 @@ export default function BioinformaticaUBB() {
             </div>
           </div>
 
-          <div className="flex-1 p-4 space-y-4">
+          <div className="flex-1 p-4 space-y-4 overflow-y-auto">
             {/* Secuencias */}
             <div className="space-y-2">
               <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
@@ -190,7 +190,7 @@ export default function BioinformaticaUBB() {
           </div>
 
           {/* Switch Global/Local */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t sticky bottom-0 bg-white">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <Globe className="h-4 w-4" />
