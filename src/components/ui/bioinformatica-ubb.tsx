@@ -16,6 +16,13 @@ import {
   ChevronRight,
   Globe,
   ChevronRight as ChevronRightIcon,
+  EqualNot,
+  ShieldCheck,
+  AlignHorizontalJustifyCenter,
+  ArrowBigRight,
+  ArrowBigLeft,
+  MoveLeft,
+  ChevronLeftSquare,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -64,9 +71,8 @@ export default function BioinformaticaUBB() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-64 transition-transform ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } bg-white border-r`}
+        className={`fixed left-0 top-0 z-40 h-screen w-64 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } bg-white border-r`}
       >
         {/* ... resto del código del sidebar ... */}
         <div className="flex flex-col h-full">
@@ -92,7 +98,7 @@ export default function BioinformaticaUBB() {
                 size="icon"
                 onClick={() => setSidebarOpen(false)}
               >
-                <ChevronRightIcon className="h-4 w-4" />
+                <ChevronLeftSquare className="h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -126,6 +132,33 @@ export default function BioinformaticaUBB() {
                   className="bg-transparent border-none focus:ring-0"
                 />
               </div>
+              <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
+                <ShieldCheck className="h-4 w-4 text-gray-500" />
+                <Input
+
+                  placeholder="1 (match)"
+                  maxLength={20}
+                  className="bg-transparent border-none focus:ring-0"
+                />
+              </div>
+              <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
+                <EqualNot className="h-4 w-4 text-gray-500" />
+                <Input
+
+                  placeholder="-1 (mismatch)"
+                  maxLength={20}
+                  className="bg-transparent border-none focus:ring-0"
+                />
+              </div>
+              <div className="flex items-center space-x-2 p-2 bg-[#F8F9FC] rounded">
+                <AlignHorizontalJustifyCenter className="h-4 w-4 text-gray-500" />
+                <Input
+
+                  placeholder="-2 (gap)"
+                  maxLength={20}
+                  className="bg-transparent border-none focus:ring-0"
+                />
+              </div>
             </div>
 
             {/* Parámetros */}
@@ -138,10 +171,10 @@ export default function BioinformaticaUBB() {
               <Calculator className="mr-2 h-4 w-4" /> Inicializar
             </Button>
             <Button className="w-full bg-primary" onClick={handleAnterior}>
-              <ChevronLeft className="mr-2 h-4 w-4" /> Anterior
+              <ArrowBigRight className="mr-2 h-4 w-4" /> Anterior
             </Button>
             <Button className="w-full bg-primary" onClick={handleSiguiente}>
-              <ChevronRight className="mr-2 h-4 w-4" /> Siguiente
+              <ArrowBigLeft className="mr-2 h-4 w-4" /> Siguiente
             </Button>
           </div>
 
@@ -160,9 +193,8 @@ export default function BioinformaticaUBB() {
 
       {/* Main content */}
       <main
-        className={`flex-1 p-8 ${
-          sidebarOpen ? "ml-64" : ""
-        } transition-all duration-300`}
+        className={`flex-1 p-8 ${sidebarOpen ? "ml-64" : ""
+          } transition-all duration-300`}
       >
         <Card className="w-full h-full flex flex-col items-center justify-center bg-white p-8">
           <h2 className="text-lg font-semibold mb-6">
