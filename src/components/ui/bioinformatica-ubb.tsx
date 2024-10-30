@@ -71,10 +71,10 @@ export default function BioinformaticaUBB() {
       )}
 
       {/* Sidebar */}
-      <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-96 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } bg-white border-r`}
-      >
+     <aside
+  className={`fixed left-0 top-0 z-40 h-screen w-96 sm:w-80 transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+    } bg-white border-r`}
+>
         {/* ... resto del código del sidebar ... */}
         <div className="flex flex-col h-full">
           <div className="p-4 border-b">
@@ -178,13 +178,13 @@ export default function BioinformaticaUBB() {
               <ArrowBigLeft className="mr-2 h-4 w-4" /> Siguiente
             </Button>
             <div className="mt-8 p-4 bg-slate-50 rounded-lg space-y-2">
-              <h3 className="font-bold text-xl">Notas:</h3>
-              <ul className="text-lg text-slate-600 space-y-1.5">
-                <li>- Se puede Agregar secuencias solo con caracteres A, C, T, G.</li>
-                <li>- Luego de agregarlos, se puede indicar los match, missmatch y gap.</li>
-                <li>- Se puede Inicializar la matriz luego de elegir las secuencias, pero no se puede inicializar el recorrido aun.</li>
-                <li>- Traspasar todo el código para que pueda correr en el servidor toma mas tiempo que 2 semanas.</li>
-                <li>- Tiene su dificultad tener un proyecto en NextJS, React, TailwindCSS y Shadcn/UI desplegado en la nube.(Perdon)</li>
+              <h3 className="font-bold text-xl sm:text-sm">Notas:</h3>
+              <ul className="text-lg sm:text-sm text-slate-600 space-y-1.5">
+                <li className="sm:text-sm   ">- Se puede Agregar secuencias solo con caracteres A, C, T, G.</li>
+                <li className="sm:text-sm   "   >- Luego de agregarlos, se puede indicar los match, missmatch y gap.</li>
+                <li className="sm:text-sm   ">- Se puede Inicializar la matriz luego de elegir las secuencias, pero no se puede inicializar el recorrido aun.</li>
+                <li className="sm:text-sm   ">- Traspasar todo el código para que pueda correr en el servidor toma mas tiempo que 2 semanas.</li>
+                <li className="sm:text-sm   ">- Tiene su dificultad tener un proyecto en NextJS, React, TailwindCSS y Shadcn/UI desplegado en la nube.(Perdon)</li>
               </ul>
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function BioinformaticaUBB() {
       >
         <Card className="w-full h-full flex flex-col items-center justify-center bg-white p-8">
           <div className="flex justify-center items-center p-8">
-            <Badge variant="secondary" className="text-lg p-4 bg-red-100 text-red-800 hover:bg-red-100">
+            <Badge variant="secondary" className="text-lg  className="sm:text-sm   " p-4 bg-red-100 text-red-800 hover:bg-red-100">
               Fase Beta 1.0 - Sin funcionalidad de Siguiente o Anterior
             </Badge></div>
           <h2 className="text-lg font-semibold mb-6">
